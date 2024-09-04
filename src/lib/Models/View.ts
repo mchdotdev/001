@@ -26,10 +26,6 @@ export const viewSchema = new Schema<IView, ViewModel>(
   },
 );
 
-viewSchema.index(
-  { 'createdAt': 1 },
-  { expireAfterSeconds: 60 * 60 * 24 * lifetime },
-);
 
 export const View =
   (models.View as ViewModel) || model<IView, ViewModel>('View', viewSchema);
