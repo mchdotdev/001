@@ -56,7 +56,7 @@ const ViewsMetricsSection: FC<Props> = ({ viewsRef, views, setMessage }) => {
       clearMessage(setMessage, 5000);
       setTimeout(() => {
         window.location.reload();
-      }, 5005);
+      }, 5001);
       return;
     };
 
