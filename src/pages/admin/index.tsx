@@ -7,29 +7,33 @@ import type {
 import { Session, UserRoles } from '@/lib/types';
 import { useMetaData } from '@/hooks/useMetaData';
 import Layout from '@/components/Layout';
-import ActionCard, { AdminAction } from '@/components/ActionCard';
 import { getSession } from '@/lib/Helpers/Methods/user';
 
 interface Props {
   session: Session;
 }
 
+interface AdminAction {
+  name: string;
+  route: string;
+}
+
 const actions: AdminAction[] = [
   {
     name: 'Add a new image to the gallery',
-    route: 'gallery/create',
+    route: '/admin/gallery/create',
   },
   {
     name: 'Create a new offer',
-    route: 'offers/create',
+    route: '/admin/offers/create',
   },
   {
     name: 'Write a new blog post',
-    route: 'blogs/create',
+    route: '/admin/blogs/create',
   },
   {
     name: 'Check out the metrics',
-    route: 'metrics',
+    route: '/admin/metrics',
   },
 ];
 
@@ -56,10 +60,13 @@ const Home: NextPage<Props> = ({ session }) => {
           <div className='flex flex-col items-center justify-center space-y-3'>
             {actions.map((action, i) => {
               return (
-                <ActionCard
+                <p
                   key={i}
-                  action={action}
-                />
+                  className='text-center text-xl font-bold cursor-pointer hover:-translate-y-1 transition-all ease-in-out duration-500 bg-orange-500 w-auto p-3 rounded-lg text-white'
+                  onClick={(): string => (window.location.href = action.route)}
+                >
+                  {action.name}
+                </p>
               );
             })}
           </div>
