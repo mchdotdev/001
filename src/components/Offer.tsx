@@ -28,14 +28,20 @@ const Offer: FC<Props> = ({ offer, loading, href }) => {
             </p>
             <div className='flex flex-col sm:flex-row font-semibold mb-10 items-center mx-auto sm:mx-0 text-white text-stroke'>
               <p className='mr-2'>From: </p>
-              <p className='w-auto h-auto p-2 rounded-lg font-bold bg-gradient-to-r from-amber-400 to-violet-600 cursor-pointer hover:scale-90 transition-all duration-500 ease-linear'>
+              <p
+                suppressHydrationWarning
+                className='w-auto h-auto p-2 rounded-lg font-bold bg-gradient-to-r from-amber-400 to-violet-600 cursor-pointer hover:scale-90 transition-all duration-500 ease-linear'
+              >
                 {new Date(offer.startsAt).toLocaleDateString()}{' '}
                 {new Date(offer.startsAt).toLocaleTimeString()}
               </p>
             </div>
             <div className='flex flex-col sm:flex-row font-semibold items-center mx-auto sm:mx-0 text-white text-stroke'>
               <p className='mr-2'>To: </p>
-              <p className='w-auto h-auto p-2 rounded-lg font-bold bg-gradient-to-r from-amber-400 to-violet-600 cursor-pointer hover:scale-90 transition-all duration-500 ease-linear'>
+              <p
+                suppressHydrationWarning
+                className='w-auto h-auto p-2 rounded-lg font-bold bg-gradient-to-r from-amber-400 to-violet-600 cursor-pointer hover:scale-90 transition-all duration-500 ease-linear'
+              >
                 {new Date(offer.endsAt).toLocaleDateString()}{' '}
                 {new Date(offer.endsAt).toLocaleTimeString()}
               </p>
