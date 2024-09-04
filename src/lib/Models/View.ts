@@ -26,9 +26,11 @@ export const viewSchema = new Schema<IView, ViewModel>(
   },
 );
 
-const lifetime = process.env.VIEWS_LIFETIME_D
-  ? parseInt(process.env.VIEWS_LIFETIME_D)
-  : 10;
+const lifetime =
+  typeof process.env.VIEWS_LIFETIME_D !== 'undefined' ||
+  !isNaN(parseInt(process.env.VIEWS_LIFETIME_D))
+    ? parseInt(process.env.VIEWS_LIFETIME_D)
+    : 10;
 
 viewSchema.index(
   { 'createdAt': 1 },
