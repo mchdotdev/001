@@ -132,11 +132,17 @@ const PostView: FC<Props> = ({ post, session }) => {
           <div className='px-5'>
             <p className='text-slate-500 text-lg'>
               Created at:{' '}
-              <span className='underline decoration-slate-600'>
+              <span
+                suppressHydrationWarning
+                className='underline decoration-slate-600'
+              >
                 {new Date(post.createdAt).toLocaleDateString()}
               </span>
             </p>
-            <p className='text-slate-500 text-lg'>
+            <p
+              suppressHydrationWarning
+              className='text-slate-500 text-lg'
+            >
               Last modified at:{' '}
               <span className='underline decoration-slate-600'>
                 {new Date(post.lastModified).toLocaleDateString()}
@@ -146,6 +152,7 @@ const PostView: FC<Props> = ({ post, session }) => {
         </div>
         <div
           dangerouslySetInnerHTML={{
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             __html: sanitizeHtml(
               marked.parse(post.markdown, { mangle: false }),
             ),
