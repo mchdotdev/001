@@ -21,7 +21,6 @@ declare global {
       COOKIE_SECRET: string;
       NEXT_PUBLIC_GML: string;
       NEXT_PUBLIC_TRACK_VIEWS: string;
-      VIEWS_LIFETIME_D: string;
     }
   }
 }
