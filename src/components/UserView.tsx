@@ -255,7 +255,10 @@ const UserView: FC<Props> = ({ session, user }) => {
         </div>
         <p className='mt-3 font-semibold text-xl'>{user.name}</p>
         <p className='mt-2 text-md text-gray-400'>ID: {user.userId}</p>
-        <p className='mt-2 text-sm text-gray-400'>
+        <p
+          className='mt-2 text-sm text-gray-400'
+          suppressHydrationWarning
+        >
           Created at:{' '}
           {new Date(user.createdAt)
             .toISOString()
