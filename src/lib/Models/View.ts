@@ -26,5 +26,14 @@ export const viewSchema = new Schema<IView, ViewModel>(
   },
 );
 
+const lifetime = process.env.VIEWS_LIFETIME_D
+  ? parseInt(process.env.VIEWS_LIFETIME_D)
+  : 10;
+
+viewSchema.index(
+  { 'createdAt': 1 },
+  { expireAfterSeconds: 60 * 60 * 24 * lifetime },
+);
+
 export const View =
   (models.View as ViewModel) || model<IView, ViewModel>('View', viewSchema);
